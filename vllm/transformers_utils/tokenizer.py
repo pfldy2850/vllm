@@ -84,6 +84,8 @@ def detokenize_incrementally(
         return None, prev_output_tokens
     new_token = tokenizer.convert_ids_to_tokens(
         new_token_id, skip_special_tokens=skip_special_tokens)
+    if new_token is None:
+        return None, prev_output_tokens
     output_tokens = prev_output_tokens + [new_token]
 
     # Convert the tokens to a string.
